@@ -3,18 +3,18 @@
 A very simple server indeed.
 
 
-## Build
-`docker build --build-arg PORT=${PORT} -t simpleserver .`
+## Build locally
+`docker build --build-arg PORT=${PORT} -t davekaufman:simpleserver https://github.com/davekaufman/simpleserver.git`
 
 ## Run
-`docker run -p $PORT:$PORT -e PORT=$PORT -d simpleserver`
+`docker run -p $PORT:$PORT -e PORT=$PORT -d davekaufman:simpleserver`
 
 
 ## Query
-returns a 200 for `/health` along with a json response of 
+returns a `200` for `/health` along with a json body of
 
 ```json
 {"status": "ok"}
 ```
 
-Everything else returns a 403 Forbidden
+`POST`s return a `403 Forbidden`
